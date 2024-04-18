@@ -43,6 +43,7 @@ struct mptcp_sock;
 struct bpf_dynptr;
 struct iphdr;
 struct ipv6hdr;
+struct mm_action;
 
 /*
  * bpf_map_lookup_elem
@@ -4763,4 +4764,4 @@ static void *(* const bpf_cgrp_storage_get)(void *map, struct cgroup *cgroup, vo
  */
 static long (* const bpf_cgrp_storage_delete)(void *map, struct cgroup *cgroup) = (void *) 211;
 
-
+static void (*bpf_update_action)(struct mm_action *action, int bpf_action) = (void *) 212;
